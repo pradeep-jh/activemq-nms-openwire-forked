@@ -140,10 +140,6 @@ namespace Apache.NMS.ActiveMQ.Commands
                 if (formatter == null)
                 {
                     formatter = new BinaryFormatter();
-                    if (Connection.DeserializationPolicy != null)
-                    {
-                        formatter.Binder = new TrustedClassFilter(Connection.DeserializationPolicy, Destination);
-                    }
                 }
                 return formatter;
             }

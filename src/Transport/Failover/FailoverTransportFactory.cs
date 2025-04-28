@@ -55,15 +55,7 @@ namespace Apache.NMS.ActiveMQ.Transport.Failover
 			StringDictionary options = compositData.Parameters;
 			FailoverTransport transport = CreateTransport(options);
 			transport.Add(false, compositData.Components);
-            try
-            {
-                transport.SetNestedExtraQueryOptions(URISupport.CreateQueryString(URISupport.GetProperties(options, "nested.")));
-            }
-            catch (Exception e)
-            {
-				Tracer.Error($"Error in setting nested parameters {e.Message}");
-            }
-            return transport;
+			return transport;
 		}
 
 		protected FailoverTransport CreateTransport(StringDictionary parameters)

@@ -397,11 +397,6 @@ namespace Apache.NMS.ActiveMQ
 				}
 			}
 		}
-		
-		/// <summary>
-		/// The deserialization policy that is applied when a connection is created.
-		/// </summary>
-		public INmsDeserializationPolicy DeserializationPolicy { get; set; } = new NmsDefaultDeserializationPolicy();
 
 		public IdGenerator ClientIdGenerator
 		{
@@ -551,7 +546,6 @@ namespace Apache.NMS.ActiveMQ
 			connection.RedeliveryPolicy = this.redeliveryPolicy.Clone() as IRedeliveryPolicy;
 			connection.PrefetchPolicy = this.prefetchPolicy.Clone() as PrefetchPolicy;
 			connection.CompressionPolicy = this.compressionPolicy.Clone() as ICompressionPolicy;
-			connection.DeserializationPolicy = this.DeserializationPolicy.Clone();
 			connection.ConsumerTransformer = this.consumerTransformer;
 			connection.ProducerTransformer = this.producerTransformer;
             connection.WatchTopicAdvisories = this.watchTopicAdvisories;
